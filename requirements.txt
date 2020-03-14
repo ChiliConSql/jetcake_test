@@ -4,4 +4,4 @@ sqlalchemy
 psycopg2
 alembic
 sqlalchemy_utils
-pytest
+nose

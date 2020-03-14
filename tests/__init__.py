@@ -12,7 +12,6 @@ from api.app import app
 TESTDB_URI = config.TEST_SQLALCHEMY_DATABASE_URI
 MIGRATIONS = os.path.join(config.PROJECT_ROOT, 'migrations')
 
-
 class APITest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

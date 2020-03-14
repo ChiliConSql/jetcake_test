@@ -35,6 +35,6 @@ alembic upgrade head
 Put your tests into tests module.
 Run your tests with
 ```
-python -m pytest
+nosetests -v
 ```
 
