@@ -8,6 +8,7 @@ from alembic.config import Config
 
 from api.config import db, config
 from api.app import app
+from api.models import User
 
 TESTDB_URI = config.TEST_SQLALCHEMY_DATABASE_URI
 MIGRATIONS = os.path.join(config.PROJECT_ROOT, 'migrations')
@@ -34,4 +35,11 @@ class ForumAPITest(APITest):
     @classmethod
     def setUpClass(cls):
         super(ForumAPITest, cls).setUpClass()
-
+        db.connect()
+        db.session.begin()
+        cls.user = User(email='testuser@email.com', name='Test User')
+        db.session.add(cls.user)
+        db.session.commit()
+        cls.user_id = cls.user.id
+        cls.user_email = cls.user.email
+        db.close()
