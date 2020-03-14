@@ -16,25 +16,25 @@ class ForumTestCase(ForumAPITest):
     def test_can_post_question(self):
         response = hug.test.post(jetcake, "forum/questions", {"question":"Is pudding fattening"})
         assert response.status == HTTP_200
-        assert response.data is not None
+        assert response.data['question_url'] is not None
 
     def test_can_answer_question(self):
         response = hug.test.post(jetcake, "forum/answers", {"question_id": 1, "answer":"Yes, pudding is fattening"})
         assert response.status == HTTP_200
-        assert response.data is not None
+        assert response.data['answer_url'] is not None
 
     def test_can_view_question(self):
         response = hug.test.get(jetcake, "forum/questions")
         assert response.status == HTTP_200
-        assert response.data is not None
+        assert len(response.data['questions']) > 0
 
     def test_can_view_responses(self):
         response = hug.test.get(jetcake, "forum/answers", {"qid": 1})
         assert response.status == HTTP_200
-        assert response.data is not None
+        assert len(response.data['answers']) > 0
 
     def test_can_bookmark_posts(self):
         response = hug.test.post(jetcake, "forum/bookmarks")
         assert response.status == HTTP_200
-        assert response.data is not None
+        assert response.data['bookmark_link'] is not None
 
