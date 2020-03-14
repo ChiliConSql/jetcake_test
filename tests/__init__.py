@@ -28,3 +28,10 @@ class APITest(unittest.TestCase):
     @classmethod
     def tearDownClass(cls):
         drop_database(TESTDB_URI)
+
+class ForumAPITest(APITest):
+
+    @classmethod
+    def setUpClass(cls):
+        super(ForumAPITest, cls).setUpClass()
+
