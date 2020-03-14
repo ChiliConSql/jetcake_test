@@ -11,7 +11,8 @@ It runs only with Python 3
 pip install -r requirements.txt
 gunicorn --reload api.app:__hug_wsgi__
 ```
-API will be exposed locally to http://127.0.0.1:8000
+API will be exposed locally to http://127.0.0.1:8000 (SERVER HOST)
+API documentation will be available at [SERVER HOST]/api
 
 ## Database
 Provide SQLALCHEMY_DATABASE_URI and TEST_SQLALCHEMY_DATABASE_URI environment variables.
