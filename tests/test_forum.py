@@ -10,6 +10,11 @@ class ForumTestCase(ForumAPITest):
 
     def setUp(self):
         super(ForumAPITest, self).setUp()
+        db.session.begin()
+        db.session.query(Bookmark).delete()
+        db.session.query(Answer).delete()
+        db.session.query(Question).delete()
+        db.session.commit()
 
     def tearDown(self):
         # delete all users except base user

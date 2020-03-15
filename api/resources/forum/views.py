@@ -8,7 +8,7 @@ from api.models.forum import *
 @hug.post('/questions')
 def post_question(body):
     """pose a question to the community
-    sample jason -> {"question": "How many calories in a bucket of chicken"
+    sample jason -> {"user_id":1, "question": "How many calories in a bucket of chicken"}
     """
     msg = 'failed operation'
     qurl = None
